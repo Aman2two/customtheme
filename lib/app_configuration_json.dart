@@ -1,6 +1,6 @@
 
 
-Map<String,Map<String,Object>> appConfigMap={
+Map<String,Map<String,Object>> appThemeConfig={
   "AppColorsLight":{
     "primary":0xff4496e0,
     "onPrimary":0xffffffff,
@@ -59,7 +59,38 @@ Map<String,Map<String,Object>> appConfigMap={
     "inversePrimary":0xff596e73,
     "shadow":0xff000000,
   },
-  "TextConfig":{
-
-  }
 };
+
+Map<String,Map<String,Object>> textThemeConfig={
+  "TextTheme1":{
+    "fontSize":10.0,
+    "textColor": 0xff000000,
+    "textStyle":"normal"
+  },
+  "TextTheme2":{
+    "fontSize":12.0,
+    "textColor": 0xff000000,
+    "textStyle":"normal"
+  },
+  "TextTheme3":{
+    "fontSize":14.0,
+    "textColor": 0xff000000,
+    "textStyle":"normal"
+  },
+  "TextTheme4":{
+    "fontSize":16.0,
+    "textColor": 0xff000000,
+    "textStyle":"normal"
+  },
+  "TextTheme5":{
+    "fontSize":18.0,
+    "textColor": 0xff000000,
+    "textStyle":"normal"
+  },
+  "TextTheme6":{
+    "fontSize":20.0,
+    "textColor": 0xff000000,
+    "textStyle":"normal"
+  },
+};
+

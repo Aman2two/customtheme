@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:untitled3/app_configuration_json_helper.dart';
+import 'package:untitled3/customWidgets/text/text_utils.dart';
 import 'package:untitled3/custom_color_scheme.dart';
 import 'package:untitled3/locator.dart';
 
@@ -18,6 +19,7 @@ class MyApp extends StatelessWidget {
         getIt.get<AppConfigurationJsonHelper>();
     return MaterialApp(
       title: 'Flutter Demo',
+      debugShowCheckedModeBanner: false,
       theme: ThemeData(
           colorScheme:
               MyColorScheme(appConfigurationJsonHelper.giveLightThemeMap())
@@ -30,11 +32,8 @@ class MyApp extends StatelessWidget {
       themeMode: ThemeMode.system,
       home: Scaffold(
           appBar: AppBar(
-            title: const Text(
-              "My title",
-              // use get it to fetch color scheme
-            ),
-          ),
+              title:
+                  TextUtils.customTextWidget(TextStyleEnum.large, "My App")),
           body: Center(
               child: GestureDetector(
                   onTap: () {}, child: const Text("This is a dummy text.")))),
