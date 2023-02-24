@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:untitled3/app_util.dart';
 import 'package:untitled3/custom_color_scheme.dart';
 import 'package:untitled3/locator.dart';
 
@@ -15,7 +16,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Flutter Demo',
-      theme: ThemeData(colorScheme: getIt.get<MyColorScheme>().myColorScheme),
+      theme: ThemeData(colorScheme: getIt.get<AppUtil>().appColorScheme.myColorScheme),
       themeMode: ThemeMode.system,
       home: Scaffold(
           appBar: AppBar(
@@ -23,7 +24,7 @@ class MyApp extends StatelessWidget {
               "My title",
               // use get it to fetch color scheme
               style: TextStyle(
-                  color: getIt.get<MyColorScheme>().myColorScheme.error),
+                  color: getIt.get<AppUtil>().appColorScheme.myColorScheme.error),
             ),
           ),
           body: Center(
