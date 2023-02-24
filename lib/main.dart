@@ -31,12 +31,11 @@ class MyApp extends StatelessWidget {
               .colorScheme),
       themeMode: ThemeMode.system,
       home: Scaffold(
-          appBar: AppBar(
-              title:
-                  TextUtils.customTextWidget(TextStyleEnum.large, "My App")),
+          appBar:
+              AppBar(title: const TextWidget("My App", TextStyleEnum.large)),
           body: Center(
               child: GestureDetector(
-                  onTap: () {}, child: const Text("This is a dummy text.")))),
+                  onTap: () {}, child: const TextWidget("My App", TextStyleEnum.large)))),
     );
   }
 }

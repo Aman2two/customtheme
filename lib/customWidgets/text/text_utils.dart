@@ -5,8 +5,15 @@ import '../../locator.dart';
 
 enum TextStyleEnum { extraSmall, small, regular, medium, large, extraLarge }
 
-class TextUtils {
-  static customTextWidget(TextStyleEnum size, String text, {isBold = false}) {
+class TextWidget extends StatelessWidget {
+  final TextStyleEnum size;
+  final String text;
+  final bool isBold;
+
+  const TextWidget(this.text, this.size, {super.key, this.isBold = false});
+
+  @override
+  Widget build(BuildContext context) {
     switch (size) {
       case TextStyleEnum.extraSmall:
         return createTextWidgetFromMap("TextTheme1", text, isBold);
@@ -23,7 +30,7 @@ class TextUtils {
     }
   }
 
-  static createTextWidgetFromMap(String keyName, String text, bool isBold) {
+  createTextWidgetFromMap(String keyName, String text, bool isBold) {
     Map<String, Map<String, Object>> textThemeMap =
         getIt.get<AppConfigurationJsonHelper>().giveTextThemeMap();
     Map<String, Object> properties = textThemeMap[keyName] ?? {};

@@ -67,9 +67,19 @@ Map<String,Map<String,Object>> textThemeConfig={
     "textColor": 0xff000000,
     "textStyle":"normal"
   },
+  "TextTheme1Dark":{
+    "fontSize":10.0,
+    "textColor": 0xffffffff,
+    "textStyle":"normal"
+  },
   "TextTheme2":{
     "fontSize":12.0,
     "textColor": 0xff000000,
+    "textStyle":"normal"
+  },
+  "TextTheme2Dark":{
+    "fontSize":12.0,
+    "textColor": 0xffffffff,
     "textStyle":"normal"
   },
   "TextTheme3":{
@@ -77,9 +87,19 @@ Map<String,Map<String,Object>> textThemeConfig={
     "textColor": 0xff000000,
     "textStyle":"normal"
   },
+  "TextTheme3Dark":{
+    "fontSize":14.0,
+    "textColor": 0xffffffff,
+    "textStyle":"normal"
+  },
   "TextTheme4":{
     "fontSize":16.0,
     "textColor": 0xff000000,
+    "textStyle":"normal"
+  },
+  "TextTheme4Dark":{
+    "fontSize":16.0,
+    "textColor": 0xffffffff,
     "textStyle":"normal"
   },
   "TextTheme5":{
@@ -87,9 +107,19 @@ Map<String,Map<String,Object>> textThemeConfig={
     "textColor": 0xff000000,
     "textStyle":"normal"
   },
+  "TextTheme5Dark":{
+    "fontSize":18.0,
+    "textColor": 0xffffffff,
+    "textStyle":"normal"
+  },
   "TextTheme6":{
     "fontSize":20.0,
     "textColor": 0xff000000,
+    "textStyle":"normal"
+  },
+  "TextTheme6Dark":{
+    "fontSize":20.0,
+    "textColor": 0xffffffff,
     "textStyle":"normal"
   },
 };
