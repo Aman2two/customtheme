@@ -1,7 +1,7 @@
 
 
 Map<String,Map<String,Object>> appConfigMap={
-  "AppColors":{
+  "AppColorsLight":{
     "primary":0xff4496e0,
     "onPrimary":0xffffffff,
     "primaryContainer":0xffb4e6ff,
@@ -29,5 +29,37 @@ Map<String,Map<String,Object>> appConfigMap={
     "onInverseSurface":0xfff5f5f5,
     "inversePrimary":0xffddfeff,
     "shadow":0xff000000,
+  },
+"AppColorsDark":{
+    "primary":0xffb4e6ff,
+    "onPrimary":0xff1b1e1e,
+    "primaryContainer":0xff1e8fdb,
+    "onPrimaryContainer":0xffd7f1ff,
+    "secondary":0xff99ccf9,
+    "onSecondary":0xff181e1e,
+    "secondaryContainer":0xff202b6d,
+    "onSecondaryContainer":0xffd7dae9,
+    "tertiary":0xffbaa99d,
+    "onTertiary":0xff1b1918,
+    "tertiaryContainer":0xff514239,
+    "onTertiaryContainer":0xffe3dfdd,
+    "error":0xffb00020,
+    "onError":0xffcf6679,
+    "errorContainer":0xfffcd8df,
+    "onErrorContainer":0xfff9dde2,
+    "outline":0xff989898,
+    "background":0xff1a1d1f,
+    "onBackground":0xffe4e4e4,
+    "surface":0xff151617,
+    "onSurface":0xfff1f1f1,
+    "surfaceVariant":0xff191c1e,
+    "onSurfaceVariant":0xffe3e4e4,
+    "inverseSurface":0xfffcfeff,
+    "onInverseSurface":0xff0e0e0f,
+    "inversePrimary":0xff596e73,
+    "shadow":0xff000000,
+  },
+  "TextConfig":{
+
   }
 };
