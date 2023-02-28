@@ -4,6 +4,5 @@ import 'package:untitled3/app_configuration_json_helper.dart';
 final getIt = GetIt.instance;
 
 setUp() {
-  getIt.registerLazySingleton<AppConfigurationJsonHelper>(
-      () => AppConfigurationJsonHelper());
+  getIt.registerLazySingleton<ThemeManager> (() => ThemeManager());
 }

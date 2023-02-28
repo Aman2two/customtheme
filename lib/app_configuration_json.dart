@@ -30,7 +30,7 @@ Map<String,Map<String,Object>> appThemeConfig={
     "inversePrimary":0xffddfeff,
     "shadow":0xff000000,
   },
-"AppColorsDark":{
+  "AppColorsDark":{
     "primary":0xffb4e6ff,
     "onPrimary":0xff1b1e1e,
     "primaryContainer":0xff1e8fdb,

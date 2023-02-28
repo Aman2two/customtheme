@@ -1,12 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:untitled3/app_configuration_json_helper.dart';
-import 'package:untitled3/customWidgets/text/text_utils.dart';
-import 'package:untitled3/custom_color_scheme.dart';
 import 'package:untitled3/locator.dart';
 
-void main() {
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
   setUp();
+  await _initDependencies();
   runApp(const MyApp());
+}
+
+_initDependencies() async {
+  ThemeManager themeManager = getIt.get<ThemeManager>();
+  await themeManager.initThemeData();
 }
 
 class MyApp extends StatelessWidget {
@@ -15,27 +20,21 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    AppConfigurationJsonHelper appConfigurationJsonHelper =
-        getIt.get<AppConfigurationJsonHelper>();
+    ThemeManager themeManager = getIt.get<ThemeManager>();
     return MaterialApp(
       title: 'Flutter Demo',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
-          colorScheme:
-              MyColorScheme(appConfigurationJsonHelper.giveLightThemeMap())
-                  .colorScheme),
+          colorScheme: themeManager.getThemeData(userTypeCustomer).lightTheme),
       darkTheme: ThemeData(
-          colorScheme: MyColorScheme(
-                  appConfigurationJsonHelper.giveDarkThemeMap(),
-                  isDark: true)
-              .colorScheme),
+          colorScheme: themeManager.getThemeData(userTypeCustomer).darkTheme),
       themeMode: ThemeMode.system,
       home: Scaffold(
-          appBar:
-              AppBar(title: const TextWidget("My App", TextStyleEnum.large)),
+          appBar: AppBar(
+              title: const Text("sadasd", style: TextStyle(fontSize: 12.0))),
           body: Center(
-              child: GestureDetector(
-                  onTap: () {}, child: const TextWidget("My App", TextStyleEnum.large)))),
+              child:
+                  GestureDetector(onTap: () {}, child: const Text("sadasd")))),
     );
   }
 }
