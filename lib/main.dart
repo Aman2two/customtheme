@@ -25,16 +25,16 @@ class MyApp extends StatelessWidget {
       title: 'Flutter Demo',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
-          colorScheme: themeManager.getThemeData(userTypeCustomer).lightTheme),
+          colorScheme: themeManager.getThemeData(userTypeAdmin).lightTheme),
       darkTheme: ThemeData(
-          colorScheme: themeManager.getThemeData(userTypeCustomer).darkTheme),
+          colorScheme: themeManager.getThemeData(userTypeAdmin).darkTheme),
       themeMode: ThemeMode.system,
       home: Scaffold(
           appBar: AppBar(
               title: const Text("sadasd", style: TextStyle(fontSize: 12.0))),
           body: Center(
               child:
-                  GestureDetector(onTap: () {}, child: const Text("sadasd")))),
+                  GestureDetector(onTap: () {}, child:  ElevatedButton(onPressed: (){}, child: Text("Press Me"))))),
     );
   }
 }
