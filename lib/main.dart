@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:untitled3/app_configuration_json_helper.dart';
+import 'package:untitled3/custom_color_scheme.dart';
 import 'package:untitled3/locator.dart';
+import 'package:untitled3/theme_cubit.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -20,21 +23,34 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    ThemeManager themeManager = getIt.get<ThemeManager>();
-    return MaterialApp(
-      title: 'Flutter Demo',
-      debugShowCheckedModeBanner: false,
-      theme: ThemeData(
-          colorScheme: themeManager.getThemeData(userTypeAdmin).lightTheme),
-      darkTheme: ThemeData(
-          colorScheme: themeManager.getThemeData(userTypeAdmin).darkTheme),
-      themeMode: ThemeMode.system,
-      home: Scaffold(
-          appBar: AppBar(
-              title: const Text("sadasd", style: TextStyle(fontSize: 12.0))),
-          body: Center(
-              child:
-                  GestureDetector(onTap: () {}, child:  ElevatedButton(onPressed: (){}, child: Text("Press Me"))))),
+    return BlocProvider(
+      create: (_) => ThemeCubit(),
+      child:
+          BlocBuilder<ThemeCubit, MyColorScheme>(builder: (cntxt, colorScheme) {
+        return MaterialApp(
+          title: 'Flutter Demo',
+          debugShowCheckedModeBanner: false,
+          theme: ThemeData(colorScheme: colorScheme.lightTheme),
+          darkTheme: ThemeData(colorScheme: colorScheme.darkTheme),
+          themeMode: ThemeMode.system,
+          home: Scaffold(
+              appBar: AppBar(
+                  title:
+                      const Text("sadasd", style: TextStyle(fontSize: 12.0))),
+              body: Center(
+                  child: GestureDetector(
+                      onTap: () {},
+                      child: ElevatedButton(
+                          onPressed: () {
+                            debugPrint("pressed ");
+                            cntxt
+                                .read<ThemeCubit>()
+                                .changeTheme(userTypeCustomer);
+                          },
+                          child: const Text("Press Me",
+                              style: TextStyle(fontSize: 24.0)))))),
+        );
+      }),
     );
   }
 }
