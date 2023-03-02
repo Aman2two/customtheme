@@ -1,4 +1,3 @@
-
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -7,6 +6,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:untitled3/app_configuration_json_helper.dart';
 import 'package:untitled3/custom_color_scheme.dart';
 import 'package:untitled3/locator.dart';
+import 'package:untitled3/text_style/text_style_utils.dart';
 import 'package:untitled3/theme_cubit.dart';
 
 void main() async {
@@ -52,21 +52,28 @@ class MyApp extends StatelessWidget {
                   themeValues.fontFamily!, lightTheme.textTheme)),
           darkTheme: darkTheme.copyWith(
               textTheme: GoogleFonts.getTextTheme(
-                  themeValues.fontFamily!, lightTheme.textTheme)),
+                  themeValues.fontFamily!, darkTheme.textTheme)),
           themeMode: ThemeMode.system,
           home: Scaffold(
               appBar: AppBar(title: const Text("sadasd")),
-              body: Center(
-                  child: GestureDetector(
-                      onTap: () {},
-                      child: ElevatedButton(
-                          onPressed: () {
-                            debugPrint("pressed ");
-                            cntxt
-                                .read<ThemeCubit>()
-                                .changeTheme(userTypeCustomer);
-                          },
-                          child: const Text("Press Me"))))),
+              body: Builder(builder: (context) {
+                return Center(
+                    child: GestureDetector(
+                        onTap: () {},
+                        child: ElevatedButton(
+                            onPressed: () {
+                              debugPrint("pressed ");
+                              cntxt
+                                  .read<ThemeCubit>()
+                                  .changeTheme(userTypeCustomer);
+                            },
+                            child: Text("Press Me",
+                                style: TextStyle(
+                                    fontSize: Theme.of(context)
+                                        .textTheme
+                                        .headline5
+                                        ?.fontSize)))));
+              })),
         );
       }),
     );
