@@ -4,8 +4,8 @@ import 'package:flutter/services.dart';
 import 'package:untitled3/custom_color_scheme.dart';
 
 class ThemeManager {
-  late MyColorScheme adminColorScheme;
-  late MyColorScheme customerColorScheme;
+  late ThemeValues adminColorScheme;
+  late ThemeValues customerColorScheme;
 
   initThemeData() async {
     Map data = await _readJson();
@@ -16,20 +16,21 @@ class ThemeManager {
   _setThemeData(List allThemes) {
     for (int i = 0; i < allThemes.length; i++) {
       String userType = allThemes[i][keyUserType];
-      var valueMap = allThemes[i][keyValue];
+      var valueMap = allThemes[i][keyColors];
+      String? fontFamily = allThemes[i][keyFontFamily];
       switch (userType) {
         case userTypeAdmin:
-          adminColorScheme = MyColorScheme(userType, valueMap);
+          adminColorScheme = ThemeValues(userType, valueMap, fontFamily);
           break;
         case userTypeCustomer:
         default:
-          customerColorScheme = MyColorScheme(userType, valueMap);
+          customerColorScheme = ThemeValues(userType, valueMap, fontFamily);
           break;
       }
     }
   }
 
-  MyColorScheme getThemeData(String userType) =>
+  ThemeValues getThemeData(String userType) =>
       userType == userTypeAdmin ? adminColorScheme : customerColorScheme;
 
   Future<Map> _readJson() async {
@@ -43,4 +44,5 @@ const String userTypeCustomer = "customer";
 const String themeJsonFilePath = "lib/assets/app_themes.json";
 const String keyThemes = "themes";
 const String keyUserType = "usertype";
-const String keyValue = "value";
+const String keyColors = "colors";
+const String keyFontFamily = "fontFamily";

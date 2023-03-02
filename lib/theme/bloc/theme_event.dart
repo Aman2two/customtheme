@@ -6,7 +6,7 @@ abstract class ThemeEvent extends Equatable {
 }
 
 class ThemeChanged extends ThemeEvent {
-  final MyColorScheme myColorScheme;
+  final ThemeValues myColorScheme;
 
   const ThemeChanged({required this.myColorScheme});
 

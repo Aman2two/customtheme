@@ -2,7 +2,8 @@
  "themes": [
    {
      "usertype": "admin",
-     "value": {
+     "fontFamily": "Open Sans",
+     "colors": {
        "AppColorsLight":{
          "primary": "0xff4496e0",
          "onPrimary": "0xffffffff",
@@ -66,7 +67,8 @@
 
    {
      "usertype": "customer",
-     "value": {
+     "fontFamily": "Poppins",
+     "colors": {
        "AppColorsLight":{
          "primary": "0xff19647e",
          "onPrimary": "0xffffffff",

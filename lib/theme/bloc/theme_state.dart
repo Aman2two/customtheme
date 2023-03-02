@@ -2,7 +2,7 @@ import 'package:equatable/equatable.dart';
 import 'package:untitled3/custom_color_scheme.dart';
 
 class ThemeState extends Equatable {
-  final MyColorScheme myColorScheme;
+  final ThemeValues myColorScheme;
 
   const ThemeState(this.myColorScheme) : super();
 
