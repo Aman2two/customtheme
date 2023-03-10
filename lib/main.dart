@@ -1,58 +1,40 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:google_fonts/google_fonts.dart';
-import 'package:untitled3/app_configuration_json_helper.dart';
 import 'package:untitled3/custom_color_scheme.dart';
-import 'package:untitled3/locator.dart';
-import 'package:untitled3/text_style/text_style_utils.dart';
-import 'package:untitled3/theme_cubit.dart';
+import 'package:untitled3/theme_manager.dart';
+
+import 'AppTheme.dart';
+import 'AppThemeWIdget.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  _initFontLicense();
-  setUp();
-  await _initDependencies();
-  runApp(const MyApp());
+  ThemeManager themeManager = await _initDependencies();
+  runApp(MyApp(themeManager));
 }
 
-_initFontLicense() {
-  GoogleFonts.config.allowRuntimeFetching = false;
-  LicenseRegistry.addLicense(() async* {
-    final license = await rootBundle.loadString('google_fonts/OFL.txt');
-    yield LicenseEntryWithLineBreaks(['google_fonts'], license);
-  });
-}
-
-_initDependencies() async {
-  ThemeManager themeManager = getIt.get<ThemeManager>();
+Future<ThemeManager> _initDependencies() async {
+  ThemeManager themeManager = ThemeManager();
   await themeManager.initThemeData();
+  return themeManager;
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+  final ThemeManager themeManager;
 
-  // This widget is the root of your application.
+  const MyApp(this.themeManager, {super.key});
+
   @override
   Widget build(BuildContext context) {
-    return BlocProvider(
-      create: (_) => ThemeCubit(),
-      child:
-          BlocBuilder<ThemeCubit, ThemeValues>(builder: (cntxt, themeValues) {
-        var lightTheme = ThemeData(
-          colorScheme: themeValues.lightTheme,
-        );
-        var darkTheme = ThemeData(colorScheme: themeValues.darkTheme);
+    return AppTheme(
+      themeManager,
+      Builder(builder: (context) {
         return MaterialApp(
           title: 'Flutter Demo',
           debugShowCheckedModeBanner: false,
-          theme: lightTheme.copyWith(
-              textTheme: GoogleFonts.getTextTheme(
-                  themeValues.fontFamily!, lightTheme.textTheme)),
-          darkTheme: darkTheme.copyWith(
-              textTheme: GoogleFonts.getTextTheme(
-                  themeValues.fontFamily!, darkTheme.textTheme)),
+          theme: ThemeData(
+            colorScheme: AppThemeIW.of(context).lightTheme,
+          ),
+          darkTheme: ThemeData(colorScheme: AppThemeIW.of(context).darkTheme),
           themeMode: ThemeMode.system,
           home: Scaffold(
               appBar: AppBar(title: const Text("sadasd")),
@@ -63,16 +45,13 @@ class MyApp extends StatelessWidget {
                         child: ElevatedButton(
                             onPressed: () {
                               debugPrint("pressed ");
-                              cntxt
-                                  .read<ThemeCubit>()
-                                  .changeTheme(userTypeCustomer);
+                              ThemeManager themeManager =
+                                  AppThemeIW.themeData(context);
+
+                              AppTheme.of(context)!.setTheme(themeManager
+                                  .getThemeData(userType: userTypeCustomer));
                             },
-                            child: Text("Press Me",
-                                style: TextStyle(
-                                    fontSize: Theme.of(context)
-                                        .textTheme
-                                        .headline5
-                                        ?.fontSize)))));
+                            child: Text("Press Me"))));
               })),
         );
       }),
