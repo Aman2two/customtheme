@@ -18,11 +18,11 @@ class AppTheme extends StatefulWidget {
 }
 
 class AppThemeState extends State<AppTheme> {
-  ThemeValues? _themeValues;
+  MyThemeData? _themeValues;
 
   getThemeValues() => _themeValues ?? widget.themeManager.getThemeData();
 
-  setTheme(ThemeValues newValue) {
+  setTheme(MyThemeData newValue) {
     setState(() {
       _themeValues = newValue;
     });

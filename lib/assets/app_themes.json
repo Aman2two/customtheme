@@ -2,7 +2,7 @@
  "themes": [
    {
      "usertype": "admin",
-     "fontFamily": "Open Sans",
+     "fontFamily": "OpenSans",
      "colors": {
        "AppColorsLight":{
          "primary": "0xff4496e0",

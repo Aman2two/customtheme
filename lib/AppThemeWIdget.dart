@@ -3,19 +3,19 @@ import 'package:untitled3/custom_color_scheme.dart';
 import 'package:untitled3/theme_manager.dart';
 
 class AppThemeIW extends InheritedWidget {
-  final ThemeValues themeValues;
+  final MyThemeData currentThemeData;
   final ThemeManager themeManager;
 
-  const AppThemeIW(this.themeValues, this.themeManager,
+  const AppThemeIW(this.currentThemeData, this.themeManager,
       {super.key, required super.child});
 
-  static ThemeValues of(BuildContext context) {
+  static MyThemeData of(BuildContext context) {
     return context
         .dependOnInheritedWidgetOfExactType<AppThemeIW>()!
-        .themeValues;
+        .currentThemeData;
   }
 
-  static ThemeManager themeData(BuildContext context) {
+  static ThemeManager allThemes(BuildContext context) {
     return context
         .dependOnInheritedWidgetOfExactType<AppThemeIW>()!
         .themeManager;
@@ -23,6 +23,7 @@ class AppThemeIW extends InheritedWidget {
 
   @override
   bool updateShouldNotify(covariant AppThemeIW oldWidget) {
-    return themeValues != oldWidget.themeValues;
+    return currentThemeData != oldWidget.currentThemeData;
   }
+  
 }

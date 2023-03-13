@@ -1,6 +1,4 @@
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:untitled3/custom_color_scheme.dart';
 import 'package:untitled3/theme_manager.dart';
 
 import 'AppTheme.dart';
@@ -32,9 +30,11 @@ class MyApp extends StatelessWidget {
           title: 'Flutter Demo',
           debugShowCheckedModeBanner: false,
           theme: ThemeData(
-            colorScheme: AppThemeIW.of(context).lightTheme,
-          ),
-          darkTheme: ThemeData(colorScheme: AppThemeIW.of(context).darkTheme),
+              colorScheme: AppThemeIW.of(context).lightTheme,
+              fontFamily: AppThemeIW.of(context).fontFamily),
+          darkTheme: ThemeData(
+              colorScheme: AppThemeIW.of(context).darkTheme,
+              fontFamily: AppThemeIW.of(context).fontFamily),
           themeMode: ThemeMode.system,
           home: Scaffold(
               appBar: AppBar(title: const Text("sadasd")),
@@ -46,12 +46,12 @@ class MyApp extends StatelessWidget {
                             onPressed: () {
                               debugPrint("pressed ");
                               ThemeManager themeManager =
-                                  AppThemeIW.themeData(context);
+                                  AppThemeIW.allThemes(context);
 
                               AppTheme.of(context)!.setTheme(themeManager
                                   .getThemeData(userType: userTypeCustomer));
                             },
-                            child: Text("Press Me"))));
+                            child: const Text("Press Me"))));
               })),
         );
       }),

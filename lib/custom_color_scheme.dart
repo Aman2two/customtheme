@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 
-class ThemeValues {
+class MyThemeData {
   late ColorScheme lightTheme;
   late ColorScheme darkTheme;
   String? fontFamily;
   late String initUsertype;
 
-  ThemeValues(this.initUsertype, Map colorMap,this.fontFamily, {isDark = false}) {
+  MyThemeData(this.initUsertype, Map colorMap,this.fontFamily, {isDark = false}) {
     lightTheme = _mapToColorScheme(colorMap[keyLightTheme], false);
     darkTheme = _mapToColorScheme(colorMap[keyDarkTheme], true);
   }

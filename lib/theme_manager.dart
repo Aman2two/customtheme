@@ -4,8 +4,8 @@ import 'package:flutter/services.dart';
 import 'package:untitled3/custom_color_scheme.dart';
 
 class ThemeManager {
-  late ThemeValues _adminColorScheme;
-  late ThemeValues _customerColorScheme;
+  late MyThemeData _adminColorScheme;
+  late MyThemeData _customerColorScheme;
 
   initThemeData() async {
     Map data = await _readJson();
@@ -20,17 +20,17 @@ class ThemeManager {
       String? fontFamily = allThemes[i][keyFontFamily];
       switch (userType) {
         case userTypeAdmin:
-          _adminColorScheme = ThemeValues(userType, valueMap, fontFamily);
+          _adminColorScheme = MyThemeData(userType, valueMap, fontFamily);
           break;
         case userTypeCustomer:
         default:
-          _customerColorScheme = ThemeValues(userType, valueMap, fontFamily);
+          _customerColorScheme = MyThemeData(userType, valueMap, fontFamily);
           break;
       }
     }
   }
 
-  ThemeValues getThemeData({String? userType}) =>
+  MyThemeData getThemeData({String? userType}) =>
       (userType == null || userType == userTypeAdmin)
           ? _adminColorScheme
           : _customerColorScheme;
