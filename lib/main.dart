@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:untitled3/text_style/text_style_utils.dart';
 import 'package:untitled3/theme_manager.dart';
 
 import 'AppTheme.dart';
@@ -37,7 +38,11 @@ class MyApp extends StatelessWidget {
               fontFamily: AppThemeIW.of(context).fontFamily),
           themeMode: ThemeMode.system,
           home: Scaffold(
-              appBar: AppBar(title: const Text("sadasd")),
+              appBar: AppBar(
+                  title: Text(
+                "sadasd",
+                style: getFontStyle(fontStyleOpenSans),
+              )),
               body: Builder(builder: (context) {
                 return Center(
                     child: GestureDetector(

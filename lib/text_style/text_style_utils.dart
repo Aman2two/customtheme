@@ -1,4 +1,5 @@
-import 'dart:ui';
+
+import 'package:flutter/painting.dart';
 
 const double extraSmallText = 10.0;
 const double smallText = 12.0;
@@ -10,13 +11,13 @@ const double extraLargeText = 20.0;
 const String fontStyleOpenSans = 'OpenSans';
 const String fontStylePoppins = 'Poppins';
 
-TextStyle getFontStyle(String type) {
+TextStyle? getFontStyle(String type) {
   switch (type) {
     case fontStyleOpenSans:
-      return TextStyle(fontFamily: fontStyleOpenSans);
+      return const TextStyle(fontFamily: fontStyleOpenSans);
     case fontStylePoppins:
-      return TextStyle(fontFamily: fontStylePoppins);
+      return const TextStyle(fontFamily: fontStylePoppins);
     default:
-      return TextStyle();
+      return const TextStyle();
   }
 }
