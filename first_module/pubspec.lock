@@ -95,20 +95,6 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "1.8.0"
-  newmodule:
-    dependency: "direct main"
-    description:
-      path: first_module
-      relative: true
-    source: path
-    version: "1.0.0+1"
-  newmodule1:
-    dependency: "direct main"
-    description:
-      path: second_module
-      relative: true
-    source: path
-    version: "1.0.0+1"
   path:
     dependency: transitive
     description:

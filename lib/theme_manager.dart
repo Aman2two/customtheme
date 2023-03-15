@@ -31,9 +31,9 @@ class ThemeManager {
   }
 
   MyThemeData getThemeData({String? userType}) =>
-      (userType == null || userType == userTypeAdmin)
-          ? _adminColorScheme
-          : _customerColorScheme;
+      (userType == null || userType == userTypeCustomer)
+          ? _customerColorScheme
+          : _adminColorScheme;
 
   Future<Map> _readJson() async {
     String response = await rootBundle.loadString(themeJsonFilePath);

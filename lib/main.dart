@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:untitled3/text_style/text_style_utils.dart';
+import 'package:newmodule1/main.dart';
 import 'package:untitled3/theme_manager.dart';
 
 import 'AppTheme.dart';
@@ -37,27 +37,9 @@ class MyApp extends StatelessWidget {
               colorScheme: AppThemeIW.of(context).darkTheme,
               fontFamily: AppThemeIW.of(context).fontFamily),
           themeMode: ThemeMode.system,
-          home: Scaffold(
-              appBar: AppBar(
-                  title: Text(
-                "sadasd",
-                style: getFontStyle(fontStyleOpenSans),
-              )),
-              body: Builder(builder: (context) {
-                return Center(
-                    child: GestureDetector(
-                        onTap: () {},
-                        child: ElevatedButton(
-                            onPressed: () {
-                              debugPrint("pressed ");
-                              ThemeManager themeManager =
-                                  AppThemeIW.allThemes(context);
-
-                              AppTheme.of(context)!.setTheme(themeManager
-                                  .getThemeData(userType: userTypeCustomer));
-                            },
-                            child: const Text("Press Me"))));
-              })),
+          home: const SecondPage(
+            title: 'hi',
+          ),
         );
       }),
     );
